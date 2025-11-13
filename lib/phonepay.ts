@@ -82,24 +82,6 @@ export async function createPhonePePayment(
               cardTypes: ["DEBIT_CARD", "CREDIT_CARD"],
             },
           ],
-          disabledPaymentModes: [
-            {
-              type: "UPI_INTENT",
-            },
-            {
-              type: "UPI_COLLECT",
-            },
-            {
-              type: "UPI_QR",
-            },
-            {
-              type: "NET_BANKING",
-            },
-            {
-              type: "CARD",
-              cardTypes: ["DEBIT_CARD", "CREDIT_CARD"],
-            },
-          ],
         },
       },
     };
