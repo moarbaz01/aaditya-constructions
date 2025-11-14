@@ -11,7 +11,7 @@ export default function Footer() {
             {/* Company Info */}
             <div className="md:col-span-2">
               <h3 className="text-2xl font-bold gradient-text mb-4">
-                Aditya Build Cons
+                Aaditya BuildCons
               </h3>
               <p className="text-gray-600 mb-4">
                 A trusted name in real estate, empowering people to own their
@@ -63,7 +63,7 @@ export default function Footer() {
 
           <div className="border-t border-gray-200 mt-12 pt-8 text-center">
             <p className="text-gray-600">
-              © 2023 Aditya Build Cons. All rights reserved. | Licensed Real
+              © 2023 Aaditya BuildCons. All rights reserved. | Licensed Real
               Estate Company
             </p>
           </div>

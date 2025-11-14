@@ -45,7 +45,7 @@ export default function Header() {
           className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
         >
           <span className="text-base sm:text-lg font-bold gradient-text">
-            Aditya Build Cons
+            Aaditya BuildCons
           </span>
         </Link>
 
@@ -105,7 +105,10 @@ export default function Header() {
           {context && (
             <div className="pt-2">
               <button
-                onClick={() => { closeMenu(); openModal(); }}
+                onClick={() => {
+                  closeMenu();
+                  openModal();
+                }}
                 className="w-full px-5 py-3 rounded-xl bg-gradient-to-r  from-accent-violet to-accent-violet-dark text-white font-semibold transition-all duration-300 ease-out active:scale-95 text-base shadow-lg flex items-center justify-center"
               >
                 Join Contest

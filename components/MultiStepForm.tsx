@@ -15,6 +15,7 @@ export default function MultiStepForm({
   initialStep = 1,
 }: MultiStepFormProps) {
   const [step, setStep] = useState(initialStep);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleBeforeUnload = () => {
@@ -69,6 +70,7 @@ export default function MultiStepForm({
 
   const handleContestSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     localStorage.setItem("contestFormData", JSON.stringify(formData));
     try {
       const response = await fetch("/api/payment", {
@@ -86,9 +88,11 @@ export default function MultiStepForm({
         }
       } else {
         alert(result.error || "Payment failed");
+        setLoading(false);
       }
     } catch (error) {
       alert("Network error");
+      setLoading(false);
     }
   };
 
@@ -100,6 +104,7 @@ export default function MultiStepForm({
       return;
     }
 
+    setLoading(true);
     const payload = {
       name: formData.name,
       email: formData.email,
@@ -133,6 +138,8 @@ export default function MultiStepForm({
     } catch (error) {
       console.error("Submission error:", error);
       alert("Network error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -333,6 +340,7 @@ export default function MultiStepForm({
 
             <button
               type="button"
+              disabled={loading}
               onClick={async () => {
                 if (
                   !formData.name ||
@@ -347,6 +355,7 @@ export default function MultiStepForm({
                   alert("Please fill all required fields");
                   return;
                 }
+                setLoading(true);
                 try {
                   const response = await fetch("/api/contest/check", {
                     method: "POST",
@@ -364,11 +373,13 @@ export default function MultiStepForm({
                   }
                 } catch (error) {
                   alert("Network error");
+                } finally {
+                  setLoading(false);
                 }
               }}
-              className="w-full gradient-bg text-white py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all"
+              className="w-full gradient-bg text-white py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all disabled:opacity-50"
             >
-              Continue
+              {loading ? "Processing..." : "Continue"}
             </button>
           </form>
         )}
@@ -406,9 +417,10 @@ export default function MultiStepForm({
                 </button>
                 <button
                   onClick={handleContestSubmit}
-                  className="w-2/3 gradient-bg text-white py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all"
+                  disabled={loading}
+                  className="w-2/3 gradient-bg text-white py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all disabled:opacity-50"
                 >
-                  Pay Now
+                  {loading ? "Processing..." : "Pay Now"}
                 </button>
               </div>
             </div>
@@ -517,9 +529,10 @@ export default function MultiStepForm({
 
             <button
               type="submit"
-              className="w-full gradient-bg text-white py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all"
+              disabled={loading}
+              className="w-full gradient-bg text-white py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all disabled:opacity-50"
             >
-              Submit Essay
+              {loading ? "Submitting..." : "Submit Essay"}
             </button>
           </form>
         )}
