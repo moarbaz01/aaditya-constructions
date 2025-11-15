@@ -15,10 +15,10 @@ export default function PrizeHighlight() {
         <div className="glass rounded-3xl p-8 md:p-16 text-center">
           <div className="relative">
             <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
-              This Could Be Your New Home!
+              This Could Be Your New Home In Jaipur!
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 mb-8">
-              A luxury flat worth ₹60 Lakhs in prime location
+              A luxury 3BHK flat worth ₹60 Lakhs in prime location of Jaipur, Rajasthan.
             </p>
 
             {/* <div className="grid md:grid-cols-3 gap-6 mb-8">
