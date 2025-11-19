@@ -19,6 +19,7 @@ export default function Terms() {
             </p>
           </div>
 
+          {/* Company Terms Section */}
           <div className="glass rounded-3xl p-8 md:p-12 space-y-8 mx-4">
             <section>
               <div className="text-gray-700 leading-relaxed">
@@ -282,13 +283,174 @@ export default function Terms() {
                 </p>
               </div>
             </section>
+          </div>
 
-            <div className="border-t border-gray-200 pt-6 mt-8">
-              <p className="text-sm text-gray-500 text-center">
-                Last updated: January 2024 | By engaging with Aaditya Buildcons,
-                you agree to these terms and conditions.
-              </p>
+          {/* Contest Terms Section */}
+          <div className="glass rounded-3xl p-8 md:p-12 space-y-8 mx-4 mb-8">
+            <div className="text-center mb-6">
+              <h2 className="text-3xl font-bold gradient-text mb-2">
+                About The Contest
+              </h2>
             </div>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Contest Overview
+              </h3>
+              <p className="text-gray-700">
+                Aaditya Buildcons is organizing a promotional contest where
+                participants have the opportunity to win a 3 BHK residential
+                flat measuring 1365 sq. ft., located at a prime location on Main
+                Sikar Road, Jaipur, valued at approximately ₹60,00,000.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Participation Fee
+              </h3>
+              <div className="text-gray-700 space-y-2">
+                <p>
+                  • The participation fee to enter this contest is ₹199 only.
+                </p>
+                <p>• This fee is non-refundable under any circumstances.</p>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Eligibility
+              </h3>
+              <div className="text-gray-700 space-y-2">
+                <p>• Open to Indian residents aged 18 years and above.</p>
+                <p>
+                  • Employees, partners, and immediate family members of Aaditya
+                  Buildcons are not eligible to participate.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Assured Rewards
+              </h3>
+              <div className="text-gray-700 space-y-2">
+                <p>
+                  • The Top 100 participants will receive an assured minimum
+                  cash prize of ₹10,000 each.
+                </p>
+                <p>
+                  • Winners will be selected based on the evaluation and
+                  selection process defined by Aaditya Buildcons.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Grand Prize – Flat Details
+              </h3>
+              <div className="text-gray-700 space-y-2">
+                <p>
+                  • One participant will win the 3 BHK flat (1365 sq ft) at Main
+                  Sikar Road, Jaipur.
+                </p>
+                <p>
+                  • The flat will be handed over as per specifications shared by
+                  Aaditya Buildcons.
+                </p>
+                <p>
+                  • Registration, stamp duty, and any legally required charges,
+                  if applicable, must be borne by the winner.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                No Additional Charges
+              </h3>
+              <p className="text-gray-700">
+                Apart from the participation fee of ₹199, no additional charges
+                will be demanded for entering, participating, or claiming the
+                rewards.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Winner Announcement Date
+              </h3>
+              <div className="text-gray-700 space-y-2">
+                <p>
+                  • All winners, including the grand prize winner and the Top
+                  100 assured prize winners, will be announced on 25th December.
+                </p>
+                <p>
+                  • Results will be declared through the official website and
+                  other authorized communication channels of Aaditya Buildcons.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Winner Verification
+              </h3>
+              <p className="text-gray-700">
+                Aaditya Buildcons reserves the right to verify details submitted
+                by participants before confirming any prize.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Contest Validity & Modifications
+              </h3>
+              <div className="text-gray-700 space-y-2">
+                <p>
+                  • Aaditya Buildcons may modify, extend, or cancel the contest
+                  if required.
+                </p>
+                <p>
+                  • Any such updates will be posted on the official website:
+                  www.aadityabuildcons.com
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Disqualification
+              </h3>
+              <p className="text-gray-700">
+                Participants providing incorrect information, violating rules,
+                or attempting fraudulent activities may be disqualified without
+                refund.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Liability
+              </h3>
+              <p className="text-gray-700">
+                Aaditya Buildcons is not responsible for technical errors,
+                payment failures, or unforeseen issues that may affect
+                participation.
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Acceptance of Terms
+              </h3>
+              <p className="text-gray-700">
+                By entering the contest, the participant confirms that they have
+                read, understood, and agreed to all Terms & Conditions stated
+                above.
+              </p>
+            </section>
           </div>
         </div>
       </main>
