@@ -262,7 +262,7 @@ export default function MultiStepForm({
                   placeholder="Email *"
                 />
                 <input
-                  type="tel"
+                  type="number"
                   name="phone"
                   required
                   value={formData.phone}
@@ -307,7 +307,7 @@ export default function MultiStepForm({
                   placeholder="State *"
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="pincode"
                   required
                   value={formData.pincode}
@@ -342,19 +342,63 @@ export default function MultiStepForm({
               type="button"
               disabled={loading}
               onClick={async () => {
-                if (
-                  !formData.name ||
-                  !formData.email ||
-                  !formData.phone ||
-                  !formData.gender ||
-                  !formData.address ||
-                  !formData.city ||
-                  !formData.state ||
-                  !formData.pincode
-                ) {
-                  alert("Please fill all required fields");
+                if (!formData.name) {
+                  alert("Name is required");
                   return;
                 }
+                if (!formData.gender) {
+                  alert("Gender is required");
+                  return;
+                }
+                if (!formData.email) {
+                  alert("Email is required");
+                  return;
+                }
+                if (!formData.phone) {
+                  alert("Phone is required");
+                  return;
+                }
+                if (!formData.address) {
+                  alert("Address is required");
+                  return;
+                }
+                if (!formData.city) {
+                  alert("City is required");
+                  return;
+                }
+                if (!formData.state) {
+                  alert("State is required");
+                  return;
+                }
+                if (!formData.pincode) {
+                  alert("Pincode is required");
+                  return;
+                }
+
+                // Validate name (only letters and spaces)
+                if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
+                  alert("Name should contain only letters and spaces");
+                  return;
+                }
+
+                // Validate email
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                  alert("Please enter a valid email address");
+                  return;
+                }
+
+                // Validate phone (10 digits)
+                if (!/^\d{10}$/.test(formData.phone)) {
+                  alert("Phone number must be exactly 10 digits");
+                  return;
+                }
+
+                // Validate pincode (6 digits)
+                if (!/^\d{6}$/.test(formData.pincode)) {
+                  alert("Pincode must be exactly 6 digits");
+                  return;
+                }
+
                 setLoading(true);
                 try {
                   const response = await fetch("/api/contest/check", {

@@ -25,10 +25,7 @@ async function handleVerification(
   try {
     parsedUserData = JSON.parse(decodeURIComponent(userData));
   } catch (error) {
-    return NextResponse.json(
-      { error: "Invalid user data" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid user data" }, { status: 400 });
   }
 
   let verificationResult;
@@ -49,12 +46,41 @@ async function handleVerification(
 
   console.log("Payment state:", paymentState, "Is completed:", isCompleted);
 
-  // Payment verified, user will submit essay in next step
-  console.log("Payment verified:", isCompleted ? "Success" : "Failed");
+  // Create contest entry with payment status
+  try {
+    const existingEntry = await ContestEntry.findOne({
+      email: parsedUserData.email,
+      phone: parsedUserData.phone,
+    });
+
+    if (!existingEntry) {
+      await ContestEntry.create({
+        name: parsedUserData.name,
+        email: parsedUserData.email,
+        phone: parsedUserData.phone,
+        gender: parsedUserData.gender,
+        address: parsedUserData.address,
+        city: parsedUserData.city,
+        state: parsedUserData.state,
+        pincode: parsedUserData.pincode,
+        paymentStatus: isCompleted ? "completed" : "failed",
+        transactionId: merchantTransactionId,
+        essay: "",
+      });
+      console.log(
+        "Contest entry created with payment status:",
+        isCompleted ? "completed" : "failed"
+      );
+    }
+  } catch (error) {
+    console.error("Error creating contest entry:", error);
+  }
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
   const redirectUrl = isCompleted
-    ? `${baseUrl}/payment/success?transactionId=${merchantTransactionId}&email=${encodeURIComponent(parsedUserData.email)}&phone=${encodeURIComponent(parsedUserData.phone)}`
+    ? `${baseUrl}/payment/success?transactionId=${merchantTransactionId}&email=${encodeURIComponent(
+        parsedUserData.email
+      )}&phone=${encodeURIComponent(parsedUserData.phone)}`
     : `${baseUrl}/payment/failure?transactionId=${merchantTransactionId}`;
 
   console.log("Redirecting to:", redirectUrl);

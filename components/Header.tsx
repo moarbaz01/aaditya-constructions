@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
-import { Home, Info, FileText, Phone, Menu, X } from "lucide-react";
+import { Home, Info, FileText, Phone, Menu, X, Bell, Search } from "lucide-react";
 import { ContestContext } from "../contexts/ContestContext";
 
 const navLinks = [
@@ -20,6 +20,16 @@ const navLinks = [
     label: "Terms",
     path: "/terms",
     icon: FileText,
+  },
+  {
+    label: "Notice",
+    path: "/notice",
+    icon: Bell,
+  },
+  {
+    label: "Check Status",
+    path: "/status",
+    icon: Search,
   },
 ];
 
